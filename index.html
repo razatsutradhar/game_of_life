@@ -17,7 +17,6 @@
                 d = document.createElement("td");
                 c = document.createElement("div");
                 c.className = "cell";
-                c.innerHTML = i;
                 d.appendChild(c);
                 r.appendChild(d);
                 console.log(i);
@@ -31,11 +30,11 @@
     <div class="gridArea">
         <table id="gridTable">
             <script>
-                addRow(20);
-                addRow(20);
-                addRow(20);
-                addRow(20);
-                addRow(20);
+                var width = 20;
+                var height = 10;
+                for (var y = 0; y < height; y++) {
+                    addRow(width);
+                }
             </script>
         </table>
     </div>
