@@ -11,18 +11,75 @@
 
 <body>
     <script>
-        function addRow(cells) {
-            var r = document.createElement("tr");
-            for (var i = 0; i < cells; i++) {
-                d = document.createElement("td");
-                c = document.createElement("div");
-                c.className = "cell";
-                d.appendChild(c);
-                r.appendChild(d);
-                console.log(i);
+        var index = 0
+        var allCells = [];
+        class CellObj {
+            setAlive() {
+                if (this.cellDiv.classList.contains("unalive")) {
+                    this.cellDiv.classList.remove("unalive");
+                    this.cellDiv.classList.add("alive");
+                } else if (!this.cellDiv.classList.contains("alive")) {
+                    this.cellDiv.classList.add("alive");
+                }
+                this.isAlive = true;
             }
-            const tbl = document.getElementById("gridTable");
-            tbl.insertBefore(r, null);
+            setUnalive() {
+                if (this.cellDiv.classList.contains("alive")) {
+                    this.cellDiv.classList.add("unalive");
+                    this.cellDiv.classList.remove("alive");
+                } else if (!this.cellDiv.classList.contains("unalive")) {
+                    this.cellDiv.classList.add("unalive");
+                }
+                this.isAlive = false;
+            }
+            cellOnclick() {
+                if (this.isAlive) {
+                    this.setUnalive();
+                } else if (!this.isAlive) {
+                    this.setAlive();
+                } else {
+                    console.log("ERROR");
+                }
+            }
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.cellDiv = document.createElement("div");
+                this.cellDiv.classList.add("cell");
+                this.cellDiv.classList.add("unalive");
+                this.isAlive = false;
+                this.cellDiv.onclick = this.cellOnclick.bind(this);
+            }
+            getDiv() {
+                return this.cellDiv
+            }
+            calculteNextState() {
+                //calculate next sate and set it to a variable
+                this.nextState = 0;
+            }
+
+            applyNextState() {
+                if (this.nextState == 1) {
+                    setAlive();
+                } else if (this.nextState == 0) {
+                    setUnalive();
+                }
+            }
+        }
+
+
+        function populate(width, height) {
+            for (var y = 0; y < height; y++) {
+                var r = document.createElement("tr");
+                for (var x = 0; x < width; x++) {
+                    d = document.createElement("td");
+                    c = new CellObj(x, y);
+                    d.appendChild(c.getDiv());
+                    r.appendChild(d);
+                }
+                const tbl = document.getElementById("gridTable");
+                tbl.insertBefore(r, null);
+            }
         }
     </script>
 
@@ -32,9 +89,7 @@
             <script>
                 var width = 20;
                 var height = 10;
-                for (var y = 0; y < height; y++) {
-                    addRow(width);
-                }
+                populate(width, height);
             </script>
         </table>
     </div>
