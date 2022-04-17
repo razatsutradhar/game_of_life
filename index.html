@@ -11,8 +11,10 @@
 
 <body>
     <script>
+        var width = 20;
+        var height = 10;
         var index = 0
-        var allCells = [];
+        var allCells = Array(width * height);
         class CellObj {
             setAlive() {
                 if (this.cellDiv.classList.contains("unalive")) {
@@ -54,16 +56,43 @@
                 return this.cellDiv
             }
             calculteNextState() {
-                //calculate next sate and set it to a variable
-                this.nextState = 0;
+                this.aliveCount = this.countAliveNeighbors();
+                if (this.aliveCount < 2 || this.aliveCount > 3) {
+                    this.nextState = 0;
+                } else {
+                    if (this.aliveCount == 2 && this.isAlive) {
+                        this.nextState = 1;
+                    } else if (this.aliveCount == 3) {
+                        this.nextState = 1;
+                    }
+                }
+
             }
 
             applyNextState() {
                 if (this.nextState == 1) {
-                    setAlive();
+                    this.setAlive();
                 } else if (this.nextState == 0) {
-                    setUnalive();
+                    this.setUnalive();
                 }
+            }
+
+            countAliveNeighbors() {
+                console.log("X: " + this.x + "\nY: " + this.y);
+                let aliveCount = 0;
+                for (var dx = -1; dx <= 1; dx++) {
+                    for (var dy = -1; dy <= 1; dy++) {
+                        if ((dx != 0 || dy != 0) && this.x + dx < width - 1 && this.x + dx >= 0 && this.y + dy < height - 1 && this.y + dy >= 0) {
+                            let i = (this.x + dx) + (this.y + dy) * width;
+                            console.log(i);
+                            if (allCells[i].isAlive) {
+                                aliveCount++;
+                            }
+                        }
+                    }
+                }
+                console.log(aliveCount);
+                return aliveCount;
             }
         }
 
@@ -75,11 +104,30 @@
                     d = document.createElement("td");
                     c = new CellObj(x, y);
                     d.appendChild(c.getDiv());
+                    allCells[width * y + x] = c;
                     r.appendChild(d);
                 }
                 const tbl = document.getElementById("gridTable");
                 tbl.insertBefore(r, null);
             }
+            console.log(allCells);
+        }
+
+        function calculateNextGen() {
+            for (const cell of allCells) {
+                cell.calculteNextState();
+            }
+        }
+
+        function updateNextGen() {
+            for (const cell of allCells) {
+                cell.applyNextState();
+            }
+        }
+
+        function updateMap() {
+            calculateNextGen();
+            updateNextGen();
         }
     </script>
 
@@ -87,12 +135,11 @@
     <div class="gridArea">
         <table id="gridTable">
             <script>
-                var width = 20;
-                var height = 10;
                 populate(width, height);
             </script>
         </table>
     </div>
+    <button type="button" onclick="updateMap()">Update</button>
 </body>
 
 </html>
