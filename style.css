@@ -35,6 +35,51 @@ td {
     border-collapse: collapse;
 }
 
+.mapControl {
+  background-color: #555555;
+  border: none;
+  color: white;
+  padding:10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.button {
+  position: relative;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  transition-duration: 0.4s;
+  text-decoration: none;
+  display: inline-block;
+  overflow: hidden;
+  font-size: 16px;
+}
+
+.button:after {
+  content: "";
+  background: #f1f1f1;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -31px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
 .cell {
     grid-column-start: 1;
     grid-column-end: 3;
