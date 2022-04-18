@@ -36,9 +36,9 @@ td {
 }
 
 .mapControl {
-  background-color: #555555;
+  background-color: #FFFFFF;
   border: none;
-  color: white;
+  color: Black;
   padding:10px;
   text-align: center;
   text-decoration: none;
@@ -58,6 +58,7 @@ td {
   display: inline-block;
   overflow: hidden;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .button:after {
@@ -67,7 +68,7 @@ td {
   position: absolute;
   padding-top: 300%;
   padding-left: 350%;
-  margin-left: -31px !important;
+  margin-left: -32px !important;
   margin-top: -120%;
   opacity: 0;
   transition: all 0.8s
@@ -80,6 +81,18 @@ td {
   transition: 0s
 }
 
+.button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.popView {
+	position: absolute;
+	top: 10px;
+	right: 100px;
+	width: 200px;
+	background: white;
+	border: 1px solid #555;
+}
 .cell {
     grid-column-start: 1;
     grid-column-end: 3;
