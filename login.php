@@ -25,7 +25,7 @@
 
         }
         $_SESSION["user"] = $username;
-        header("location: ./myboard.html");
+        header("location: ./myboard.php");
     }else{
         header("location: ./userlogin.php?err=1");
     }

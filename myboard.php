@@ -1,6 +1,11 @@
-<php
-
->
+<?php
+session_start();
+//get all data from files first
+if(!isset($_SESSION['user'])){
+    header("location: ./userlogin.php");
+}
+$user = $_SESSION['user'];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -47,9 +52,13 @@
         </div>
 	</div>
 	
+
 	<div class="popView">
+        <p>Welcome <?php echo $_SESSION['user']?></p>
+        <br>
 		<p onload = "popCalc()">Population: <span id="counter"></span></p>
-		
+        <br>
+		<button class="small" onclick="window.location.href='./logout.php'">Log Out</button>
 	</div>
 	
 	
