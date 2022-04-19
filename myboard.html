@@ -34,17 +34,17 @@
 	</div>
 	
 	<div class="popView">
-		<h3>Population</h3>
+		<p onload = "popCalc()">Population: <span id="myText"></span></p>
 		
 	</div>
 	
 	<div class="patternSelection">
-		Select a Pattern
-		<button class="dropdown">Options</button>
+		<h2>Select a Pattern</h2>
+		<button class="dropdown">Set Pattern</button>
 		<div class="dropdown-content">
-			<a href="#">Option 1</a>
-			<a href="#">Option 2</a>
-			<a href="#">Option 3</a>
+			<a href="#" onclick="pattern1()">The Block</a>
+			<a href="#" onclick="pattern2()">The Blinker</a>
+			<a href="#" onclick="pattern3()">The Beacon</a>
 		</div>
 	</div>
 </body>

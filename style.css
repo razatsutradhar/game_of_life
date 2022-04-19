@@ -45,7 +45,7 @@ td {
   display: inline-block;
   font-size: 16px;
   margin: 10px;
-  width: 800px;
+  width: 700px;
 }
 
 .button {
@@ -85,6 +85,48 @@ td {
 
 .button:hover {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.dropdown {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.patternSelection {
+  position: relative;
+  top: -150px;
+  right: -100px;
+  display: inline-block;
+  width: 200px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ADD8E6}
+
+.patternSelection:hover .dropdown-content {
+  display: block;
+}
+
+.patternSelection:hover dropdown {
+  background-color: #3e8e41;
 }
 
 .popView {

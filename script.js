@@ -83,6 +83,16 @@ class CellObj {
         return aliveCount;
     }
 }
+
+function popCalc(){
+	for(const cell of allCells){
+		if(cell.isAlive()){
+			count++;
+		}
+	}
+	document.getElementById("counter").innerHTML = count;
+}
+
 function startGame(){
     interval = setInterval(updateMap, 500, 1); 
 }
@@ -117,6 +127,17 @@ function resetMap() {
 
 }
 
+function pattern1() {
+	resetMap();
+	for (var z = 0; z < 1; z++){
+		for(var c = 0; c < 1; c++){
+			cell.setAlive();
+		}
+	}
+}
+
+
+
 function calculateNextGen() {
     for (const cell of allCells) {
         cell.calculteNextState();
@@ -136,3 +157,4 @@ function updateMap(increment) {
     }
 
 }
+
