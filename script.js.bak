@@ -85,7 +85,6 @@ class CellObj {
 }
 
 function popCalc(){
-	var count = 0;
 	for(const cell of allCells){
 		if(cell.isAlive){
 			count++;
@@ -133,7 +132,6 @@ function getCell(x,y){
 }
 
 function changePattern() {
-    pauseMap();
 	resetMap();
 	if(document.getElementById("select").value == 1){
 		getCell(1,1).setAlive();
