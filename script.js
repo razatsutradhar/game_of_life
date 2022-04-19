@@ -127,13 +127,17 @@ function resetMap() {
 
 }
 
+function getCell(x,y){
+    return allCells[y*width + x];
+}
+
 function changePattern() {
 	resetMap();
-	if(document.getElementById("select").value == 1{
-		// allCells.Cellobj[x][y].isAlive()= true; 
-	} else if(document.getElementById("select").value == 2{
+	if(document.getElementById("select").value == 1){
+		getCell(1,1).setAlive();
+	} else if(document.getElementById("select").value == 2){
 		// allCells.Cellobj[x][y].isAlive()= true;
-	} else if(document.getElementById("select").value == 3{
+	} else if(document.getElementById("select").value == 3){
 		// allCells.Cellobj[x][y].isAlive()= true;
 	}
 	
