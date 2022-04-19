@@ -34,18 +34,18 @@
 	</div>
 	
 	<div class="popView">
-		<p onload = "popCalc()">Population: <span id="myText"></span></p>
+		<p onload = "popCalc()">Population: <span id="counter"></span></p>
 		
 	</div>
 	
-	<div class="patternSelection">
+	<div class="patternSelection" style= "width: 200px;">
 		<h2>Select a Pattern</h2>
-		<button class="dropdown">Set Pattern</button>
-		<div class="dropdown-content">
-			<a href="#" onclick="pattern1()">The Block</a>
-			<a href="#" onclick="pattern2()">The Blinker</a>
-			<a href="#" onclick="pattern3()">The Beacon</a>
-		</div>
+		<select id="select" onchange="changePattern()">
+			<option value="0">Select a Preset</a>
+			<option value="1">The Block</a>
+			<option value="2">The Blinker</a>
+			<option value="3">The Beacon</a>
+		</select>
 	</div>
 </body>
 

@@ -127,16 +127,17 @@ function resetMap() {
 
 }
 
-function pattern1() {
+function changePattern() {
 	resetMap();
-	for (var z = 0; z < 1; z++){
-		for(var c = 0; c < 1; c++){
-			cell.setAlive();
-		}
+	if(document.getElementById("select").value == 1{
+		// allCells.Cellobj[x][y].isAlive()= true; 
+	} else if(document.getElementById("select").value == 2{
+		// allCells.Cellobj[x][y].isAlive()= true;
+	} else if(document.getElementById("select").value == 3{
+		// allCells.Cellobj[x][y].isAlive()= true;
 	}
+	
 }
-
-
 
 function calculateNextGen() {
     for (const cell of allCells) {
