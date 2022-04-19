@@ -135,10 +135,23 @@ function changePattern() {
 	resetMap();
 	if(document.getElementById("select").value == 1){
 		getCell(1,1).setAlive();
+		getCell(1,2).setAlive();
+		getCell(2,1).setAlive();
+		getCell(2,2).setAlive();
+
 	} else if(document.getElementById("select").value == 2){
-		// allCells.Cellobj[x][y].isAlive()= true;
+        getCell(10,4).setAlive();
+		getCell(10,5).setAlive();
+		getCell(10,6).setAlive();
 	} else if(document.getElementById("select").value == 3){
-		// allCells.Cellobj[x][y].isAlive()= true;
+		getCell(1,1).setAlive();
+		getCell(1,2).setAlive();
+		getCell(2,1).setAlive();
+		getCell(2,2).setAlive();
+        getCell(3,3).setAlive();
+		getCell(3,4).setAlive();
+		getCell(4,3).setAlive();
+		getCell(4,4).setAlive();
 	}
 	
 }
