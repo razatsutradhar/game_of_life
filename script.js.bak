@@ -85,7 +85,6 @@ class CellObj {
 }
 
 function popCalc(){
-	var count = 0;
 	for(const cell of allCells){
 		if(cell.isAlive){
 			count++;
