@@ -1,3 +1,7 @@
+<php
+
+>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,6 +35,16 @@
 		<button class="button" onclick="updateMap(1)">Update</button>
 		<button class="button" onclick="updateMap(23)">Increment 23</button>
 		<button class="button" onclick="resetMap()">Reset</button>
+        <br>
+        <div class="patternSelection" style= "width: 200px;">
+            <h2>Select a Pattern</h2>
+            <select id="select" onchange="changePattern()">
+                <option value="0">Select a Preset</a>
+                <option value="1">The Block</a>
+                <option value="2">The Blinker</a>
+                <option value="3">The Beacon</a>
+            </select>
+        </div>
 	</div>
 	
 	<div class="popView">
@@ -38,15 +52,7 @@
 		
 	</div>
 	
-	<div class="patternSelection" style= "width: 200px;">
-		<h2>Select a Pattern</h2>
-		<select id="select" onchange="changePattern()">
-			<option value="0">Select a Preset</a>
-			<option value="1">The Block</a>
-			<option value="2">The Blinker</a>
-			<option value="3">The Beacon</a>
-		</select>
-	</div>
+	
 </body>
 
 </html>

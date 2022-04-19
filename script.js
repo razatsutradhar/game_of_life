@@ -132,6 +132,7 @@ function getCell(x,y){
 }
 
 function changePattern() {
+    pauseMap();
 	resetMap();
 	if(document.getElementById("select").value == 1){
 		getCell(1,1).setAlive();
